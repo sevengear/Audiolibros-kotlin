@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <ImageView
+        android:id="@+id/imagen"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_margin="10dp"
+        tools:src="@drawable/books" />
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@id/imagen"
+        android:layout_toRightOf="@id/imagen"
+        tools:text="Titulo" />
+
+    <TextView
+        android:id="@+id/texto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titulo"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_toEndOf="@id/imagen"
+        android:layout_toRightOf="@id/imagen"
+        tools:text="Autor" />
+
+    <ImageView
+        android:id="@+id/reproducir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="10dp"
+        tools:src="@android:drawable/ic_media_play" />
+</RelativeLayout>

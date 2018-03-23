@@ -1,0 +1,19 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="pref_autoreproducir"
+        android:summary="El audio se inicia automáticamente al abrirlo"
+        android:title="Reproducir automáticamente" />
+    <CheckBoxPreference
+        android:dependency="pref_autoreproducir"
+        android:layout="?android:attr/preferenceLayoutChild"
+        android:summary="Ejemplo de CheckBox con dependencia"
+        android:title="Otra preferencia" />
+    <PreferenceScreen
+        android:summary="visualizamos página web"
+        android:title="Información adicional">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="http://www.androidcurso.com" />
+    </PreferenceScreen>
+</PreferenceScreen>

@@ -1,0 +1,12 @@
+<appwidget-provider
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minHeight="110dp"
+    android:minWidth="110dp"
+    android:minResizeWidth="40dp"
+    android:minResizeHeight="40dp"
+    android:updatePeriodMillis="1800000"
+    android:initialLayout="@layout/widget"
+    android:previewImage="@drawable/estrella"
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen" >
+</appwidget-provider>
