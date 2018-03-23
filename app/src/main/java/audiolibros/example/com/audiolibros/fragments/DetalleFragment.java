@@ -80,10 +80,10 @@ public class DetalleFragment extends Fragment implements View.OnTouchListener, M
     private void ponInfoLibro(int id, View vista) {
         Libro libro = ((Aplicacion) getActivity().getApplication())
                 .getListaLibros().get(id);
-        ((TextView) vista.findViewById(R.id.titulo)).setText(libro.titulo);
-        ((TextView) vista.findViewById(R.id.autor)).setText(libro.autor);
+        ((TextView) vista.findViewById(R.id.titulo)).setText(libro.getTitulo());
+        ((TextView) vista.findViewById(R.id.autor)).setText(libro.getAutor());
         Aplicacion aplicacion = (Aplicacion) getActivity().getApplication();
-        ((NetworkImageView) vista.findViewById(R.id.portada)).setImageUrl(libro.urlImagen, aplicacion.getLectorImagenes());
+        ((NetworkImageView) vista.findViewById(R.id.portada)).setImageUrl(libro.getUrlImagen(), aplicacion.getLectorImagenes());
         vista.setOnTouchListener(this);
         if (mediaPlayer != null) {
             mediaPlayer.release();
@@ -91,7 +91,7 @@ public class DetalleFragment extends Fragment implements View.OnTouchListener, M
         mediaPlayer = new MediaPlayer();
         mediaPlayer.setOnPreparedListener(this);
         mediaController = new MediaController(getActivity());
-        Uri audio = Uri.parse(libro.urlAudio);
+        Uri audio = Uri.parse(libro.getUrlAudio());
         try {
             mediaPlayer.setDataSource(getActivity(), audio);
             mediaPlayer.prepareAsync();
@@ -102,9 +102,9 @@ public class DetalleFragment extends Fragment implements View.OnTouchListener, M
         remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.custom_notification);
         remoteViews.setImageViewResource(R.id.reproducir, android.R.drawable.ic_media_play);
         remoteViews.setImageViewResource(R.id.imagen, getImageResource(libro));
-        remoteViews.setTextViewText(R.id.titulo, libro.titulo);
+        remoteViews.setTextViewText(R.id.titulo, libro.getTitulo());
         remoteViews.setTextColor(R.id.titulo, Color.BLACK);
-        remoteViews.setTextViewText(R.id.texto, libro.autor);
+        remoteViews.setTextViewText(R.id.texto, libro.getAutor());
         remoteViews.setTextColor(R.id.texto, Color.BLACK);
 
         Intent intent = new Intent(getActivity(), MainActivity.class);
@@ -123,7 +123,7 @@ public class DetalleFragment extends Fragment implements View.OnTouchListener, M
     }
 
     private int getImageResource(Libro libro) {
-        switch (libro.titulo) {
+        switch (libro.getTitulo()) {
             case "Avecilla":
                 return R.drawable.avecilla;
             case "Canción de Rolando":

@@ -176,13 +176,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             adaptador.setGenero("");
             adaptador.notifyDataSetChanged();
         } else if (id == R.id.nav_epico) {
-            adaptador.setGenero(Libro.G_EPICO);
+            adaptador.setGenero(Libro.Companion.getG_EPICO());
             adaptador.notifyDataSetChanged();
         } else if (id == R.id.nav_XIX) {
-            adaptador.setGenero(Libro.G_S_XIX);
+            adaptador.setGenero(Libro.Companion.getG_S_XIX());
             adaptador.notifyDataSetChanged();
         } else if (id == R.id.nav_suspense) {
-            adaptador.setGenero(Libro.G_SUSPENSE);
+            adaptador.setGenero(Libro.Companion.getG_SUSPENSE());
             adaptador.notifyDataSetChanged();
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

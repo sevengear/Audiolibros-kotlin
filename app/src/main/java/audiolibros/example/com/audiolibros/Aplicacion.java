@@ -23,7 +23,7 @@ public class Aplicacion extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        listaLibros = Libro.ejemploLibros();
+        listaLibros = Libro.Companion.ejemploLibros();
         adaptador = new AdaptadorLibrosFiltro(this, listaLibros);
         colaPeticiones = Volley.newRequestQueue(this);
         lectorImagenes = new ImageLoader(colaPeticiones, new ImageLoader.ImageCache() {

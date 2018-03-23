@@ -31,9 +31,9 @@ public class MiAppWidgetProvider extends AppWidgetProvider {
             Libro libro = ((Aplicacion) context.getApplicationContext())
                     .getListaLibros().get(id);
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget);
-            remoteViews.setTextViewText(R.id.txtAutor, libro.autor);
-            remoteViews.setTextViewText(R.id.txtTitle, libro.titulo);
-            remoteViews.setImageViewUri(R.id.imgList, Uri.parse(libro.urlImagen));
+            remoteViews.setTextViewText(R.id.txtAutor, libro.getAutor());
+            remoteViews.setTextViewText(R.id.txtTitle, libro.getTitulo());
+            remoteViews.setImageViewUri(R.id.imgList, Uri.parse(libro.getUrlImagen()));
             AppWidgetManager.getInstance(context).updateAppWidget(widgetId, remoteViews);
             Intent intent = new Intent(context, MainActivity.class);
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
