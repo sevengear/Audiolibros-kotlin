@@ -23,9 +23,10 @@ class Libro(var titulo: String,
         val G_S_XIX = "Literatura siglo XIX"
         val G_SUSPENSE = "Suspense"
 
-        fun ejemploLibros(): List<Libro> {
+        fun ejemploLibros(): MutableList<Libro> {
             val SERVIDOR = "http://mmoviles.upv.es/audiolibros/"
-            val libros = ArrayList<Libro>()
+            val libros : MutableList<Libro> = arrayListOf()
+            /*val libros = ArrayList<Libro>()*/
             libros.add(Libro("Kappa", "Akutagawa", SERVIDOR + "kappa.jpg", SERVIDOR + "kappa.mp3", Libro.G_S_XIX, false, false))
             libros.add(Libro("Avecilla", "Alas Clarín, Leopoldo", SERVIDOR + "avecilla.jpg", SERVIDOR + "avecilla.mp3", Libro.G_S_XIX, true, false))
             libros.add(Libro("Divina Comedia", "Dante", SERVIDOR + "divina_comedia.jpg", SERVIDOR + "divina_comedia.mp3", Libro.G_EPICO, true, false))
