@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import audiolibros.example.com.audiolibros.R.id.*
 
 import audiolibros.example.com.audiolibros.fragments.DetalleFragment
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     //private var tabs: TabLayout? = null
     //private var drawer: DrawerLayout? = null
     private var toggle: ActionBarDrawerToggle? = null
+    private lateinit var libroStorage: LibroStorage
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -98,6 +100,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             override fun onTabReselected(tab: TabLayout.Tab) {}
         })
+
+        libroStorage = LibroStorage(this)
     }
 
     fun mostrarDetalle(id: Int) {
@@ -146,14 +150,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     fun irUltimoVisitado() {
-        val pref = getSharedPreferences(
-                "com.example.audiolibros_internal", Context.MODE_PRIVATE)
-        val id = pref.getInt("ultimo", -1)
-        if (id >= 0) {
-            mostrarDetalle(id)
+        if (libroStorage.hasLastBook()) {
+            mostrarDetalle(libroStorage.lastBook)
         } else {
-            toast("Sin última vista")
-            //Toast.makeText(this, "Sin última vista", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Sin última vista", Toast.LENGTH_LONG).show()
         }
     }
 
